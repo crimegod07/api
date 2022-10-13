@@ -12,6 +12,9 @@ app.use(express.json());
 
 // route for home
 app.use('/', require('./routes/index'));
+app.route("/").get(function (req, res) {
+    res.sendFile(process.cwd() + "/index.html");
+  });
 
 app.listen(port, function(err){
     if(err){
